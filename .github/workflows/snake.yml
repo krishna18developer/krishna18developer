@@ -8,12 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
       - uses: Platane/snk@v2
         with:
           github_user_name: krishna18developer
           svg_out_path: output/github-contribution-grid-snake.svg
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit and Push
         uses: EndBug/add-and-commit@v7
         with:
