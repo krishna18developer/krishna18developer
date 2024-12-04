@@ -21,10 +21,15 @@ jobs:
         with:
           github_user_name: krishna18developer
           svg_out_path: output/github-contribution-grid-snake.svg
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
           snake_color: 'blue'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Push changes
         uses: EndBug/add-and-commit@v9
         with:
           message: 'Generate Snake Animation'
-          add: 'output'
+          add: 'dist'
+          push: true
